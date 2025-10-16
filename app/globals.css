@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* Tailwind v4 theme tokens */
+@theme {
+  /* Use space-separated RGB so /opacity utilities work */
+  --color-background: 11 15 20;   /* #0b0f14 */
+  --color-foreground: 230 238 248;/* #e6eef8 */
+  --color-primary:    0 223 154;  /* #00df9a */
+  --color-accent:     138 180 255;/* #8ab4ff */
+  --color-muted:      107 114 128;/* #6b7280 */
+  --color-card:       17 24 39;   /* #111827 */
+  --color-ring:       51 65 85;   /* #334155 */
+
+  /* Custom shadow token for `shadow-soft` */
+  --shadow-soft: 0 8px 24px -12px rgba(0,0,0,0.45),
+                 0 2px 6px -1px rgba(0,0,0,0.15);
+}
+
+/* Keep your original structure & utilities */
+html,
+body,
+:root {
+  height: 100%;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+}
+
+.input {
+  @apply w-full rounded-xl bg-card/60 border border-ring/40 px-4 py-2 outline-none focus:ring-4 focus:ring-ring/40 shadow-soft;
+}
+.label {
+  @apply block text-sm text-muted mb-1;
+}
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium shadow-soft border border-transparent disabled:opacity-60 disabled:cursor-not-allowed;
+}
+.btn-primary {
+  @apply bg-primary text-black hover:brightness-110;
+}
+.btn-secondary {
+  @apply bg-card text-foreground border border-ring/40 hover:bg-card/80;
+}
+.btn-danger {
+  @apply bg-red-500 text-white hover:bg-red-600;
+}
+.badge {
+  @apply inline-flex items-center rounded-full bg-accent/15 text-accent px-2.5 py-1 text-xs font-semibold;
+}
+.card {
+  @apply rounded-2xl bg-card/70 border border-ring/40 shadow-soft;
+}
+.container {
+  @apply max-w-6xl mx-auto px-4;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
