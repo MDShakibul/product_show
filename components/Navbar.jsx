@@ -1,8 +1,8 @@
 'use client';
-import { useAppDispatch, useAppSelector } from '../lip/hook.js';
-import { logout } from '../lip/slices/authSlice.js';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { useAppDispatch, useAppSelector } from '../lip/hook.js';
+import { logout } from '../lip/slices/authSlice.js';
 
 export default function Navbar() {
 	const { email } = useAppSelector((s) => s.auth);
@@ -23,6 +23,12 @@ export default function Navbar() {
 							className={path === '/products' ? 'underline' : ''}
 						>
 							All
+						</Link>
+						<Link
+							href="/categories"
+							className={path === '/categories' ? 'underline' : ''}
+						>
+							Categories
 						</Link>
 						<Link
 							href="/products/new"

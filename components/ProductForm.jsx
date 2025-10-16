@@ -2,6 +2,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import CategoryPicker from './CategoryPicker';
 
 const productSchema = z.object({
 	name: z.string().min(1, 'Name is required').max(80, 'Max 80 characters'),
@@ -69,14 +70,13 @@ export default function ProductForm({ defaultValues, submitting, onSubmit }) {
 					)}
 				</div>
 				<div>
-					<label className="label" htmlFor="categoryId">
-						Category ID
-					</label>
-					<input
-						id="categoryId"
-						className="input"
-						{...register('categoryId')}
-						placeholder="e.g. 9c1129eb-cb7f-…"
+					<label className="label">Category</label>
+					<CategoryPicker
+						value={null}
+						onChange={(c) =>
+							setValue('categoryId', c?.id || '', { shouldValidate: true })
+						}
+						placeholder="Search & select a category"
 					/>
 					{errors.categoryId && (
 						<p className="text-red-400 text-sm mt-1">

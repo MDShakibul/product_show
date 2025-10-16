@@ -21,17 +21,17 @@ export default function ConfirmDialog({
 	if (!open) return null;
 
 	return (
-		<div className="fixed inset-0 z-50 grid place-items-center bg-black/50 p-4">
-			<div className="card p-6 w-full max-w-md">
+		<div className="fixed inset-0 z-50 grid place-items-center bg-black/50  p-4">
+			<div className="card p-6 w-full max-w-md !bg-white">
 				<h2 className="text-lg font-semibold mb-2">{title}</h2>
 				{description && (
 					<p className="text-sm text-muted mb-6">{description}</p>
 				)}
 				<div className="flex items-center justify-end gap-3">
-					<button className="btn btn-secondary" onClick={onCancel}>
+					<button className="btn btn-secondary cursor-pointer " onClick={onCancel}>
 						{cancelLabel}
 					</button>
-					<button className="btn btn-danger" onClick={onConfirm}>
+					<button className="btn btn-danger cursor-pointer" onClick={onConfirm}>
 						{confirmLabel}
 					</button>
 				</div>

@@ -1,16 +1,17 @@
 'use client';
+import CategoryPicker from '@/components/CategoryPicker.jsx';
 import ConfirmDialog from '@/components/ConfirmDialog';
 import Navbar from '@/components/Navbar';
 import Pagination from '@/components/Pagination';
 import SearchInput from '@/components/SearchInput';
 import Spinner from '@/components/Spinner';
+import Link from 'next/link';
+import { useEffect, useMemo, useState } from 'react';
 import {
 	useDeleteProductMutation,
 	useGetProductsQuery,
 	useSearchProductsQuery,
 } from '../../../lip/service/productApi.js';
-import Link from 'next/link';
-import { useEffect, useMemo, useState } from 'react';
 
 export default function ProductsPage() {
 	const [page, setPage] = useState(1);
@@ -18,6 +19,7 @@ export default function ProductsPage() {
 	const offset = (page - 1) * limit;
 	const [search, setSearch] = useState('');
 	const [categoryId, setCategoryId] = useState('');
+	const [value, setValue] = useState('');
 
 	const listingEnabled = !search;
 	const {
@@ -64,14 +66,17 @@ export default function ProductsPage() {
 							placeholder="Search by name…"
 							loading={searching || (isFetching && !isLoading)}
 						/>
-						<input
-							className="input w-48"
-							placeholder="Filter: categoryId"
-							value={categoryId}
-							onChange={(e) => setCategoryId(e.target.value)}
-						/>
+						{/* <div className="w-64">
+							<CategoryPicker
+								value={null}
+								onChange={(c) =>
+									setValue('categoryId', c?.id || '', { shouldValidate: true })
+								}
+								placeholder="Search & select a category"
+							/>
+						</div> */}
 						<Link href="/products/new" className="btn btn-primary">
-							New
+							Add Product
 						</Link>
 					</div>
 				</div>
