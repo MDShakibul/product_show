@@ -5,7 +5,7 @@ import Spinner from '@/components/Spinner';
 import {
 	useDeleteProductMutation,
 	useGetProductBySlugQuery,
-} from '@/lib/services/productsApi';
+} from '../../../../lip/service/productApi.js';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -16,6 +16,7 @@ export default function ProductDetailsPage() {
 	const [del, { isLoading: deleting }] = useDeleteProductMutation();
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
+	console.log(slug)
 
 	return (
 		<div>
@@ -29,7 +30,7 @@ export default function ProductDetailsPage() {
 					<div className="card p-6">
 						Failed to load.{' '}
 						<button
-							className="btn btn-secondary ml-2"
+							className="btn btn-secondary ml-2 cursor-pointer"
 							onClick={() => refetch()}
 						>
 							Retry

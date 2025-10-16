@@ -67,7 +67,7 @@ export default function EditProductPage() {
 									images: values.images,
 								},
 							}).unwrap();
-							router.replace(`/products/${slug}`);
+							router.replace(`/products`);
 						}}
 						submitting={saving}
 					/>
