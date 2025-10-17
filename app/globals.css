@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
-/* Tailwind v4 theme tokens */
 @theme {
-  /* Use space-separated RGB so /opacity utilities work */
+
   --color-background: 11 15 20;   /* #eff1f3 */
   --color-foreground: 230 238 248;/* #e6eef8 */
   --color-primary:    0 223 154;  /* #00df9a */
@@ -10,13 +9,10 @@
   --color-muted:      107 114 128;/* #6b7280 */
   --color-card:       78 110 93;  /* #4e6e5d */
   --color-ring:       51 65 85;   /* #334155 */
-
-  /* Custom shadow token for `shadow-soft` */
   --shadow-soft: 0 8px 24px -12px rgba(0,0,0,0.45),
                  0 2px 6px -1px rgba(0,0,0,0.15);
 }
 
-/* Keep your original structure & utilities */
 html,
 body,
 :root {
