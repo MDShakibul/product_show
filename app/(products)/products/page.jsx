@@ -42,7 +42,7 @@ export default function ProductsPage() {
 	const items = search ? searchData || [] : listData || [];
 
 	// Delete state
-	const [toDelete, setToDelete] = useState(null); // { id, slug, name } or just { id }
+	const [toDelete, setToDelete] = useState(null);
 	const [del, { isLoading: deleting }] = useDeleteProductMutation();
 	const [deleteError, setDeleteError] = useState(null);
 
@@ -51,29 +51,22 @@ export default function ProductsPage() {
 		setPage(1);
 	}, [search, categoryId]);
 
-	// With offset/limit API and no total, we show Prev/Next; Next is disabled when fewer than limit are returned
 	const hasNext = useMemo(
 		() => items && items.length === limit && !search,
 		[items, limit, search]
 	);
 
-	// Open the confirm dialog
 	const openDelete = (p) =>
 		setToDelete({ id: p.id, slug: p.slug, name: p.name });
 
-	// Perform deletion with error handling
 	const handleDelete = async () => {
 		if (!toDelete?.id) return;
 		setDeleteError(null);
 		try {
-			const result = await del(toDelete.id).unwrap(); // throws on error
-			setToDelete(null); // close modal
-			// If your RTK Query invalidates tags, the list/search refetches automatically.
-			// If not, you can force a refetch of the list query:
-			// if (!search) refetch();
+			const result = await del(toDelete.id).unwrap(); 
+			setToDelete(null); 
 		} catch (err) {
 			setDeleteError('Failed to delete. Please try again.');
-			// console.error(err);
 		}
 	};
 
@@ -90,16 +83,8 @@ export default function ProductsPage() {
 							placeholder="Search by name…"
 							loading={searching || (isFetching && !isLoading)}
 						/>
-						{/* Category filter (optional):
-            <div className="w-64">
-              <CategoryPicker
-                value={null}
-                onChange={(c) => setCategoryId(c?.id || '')}
-                placeholder="Filter by category name…"
-              />
-            </div>
-            */}
-						<Link href="/products/new" className="btn btn-primary">
+
+						<Link href="/products/new" className="btn btn-primary text-sm md:text-base">
 							Add Product
 						</Link>
 					</div>
@@ -144,19 +129,6 @@ export default function ProductsPage() {
 											</span>
 										</div>
 
-										{/* {p.images?.[0] ? (
-											<img
-												src={p.images[0]}
-												alt={p.name}
-												className="rounded-xl  border-ring/30 aspect-[4/3] object-cover"
-											/>
-										) : (
-											<img
-												src={`https://placehold.co/600x400`}
-												alt={p?.name}
-												className="rounded-xl border border-ring/30 aspect-[4/3] object-cover"
-											/>
-										)} */}
 
 										<div className="relative group rounded-2xl overflow-hidden ">
 											<img

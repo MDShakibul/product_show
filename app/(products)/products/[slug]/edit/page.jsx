@@ -7,6 +7,9 @@ import {
 	useUpdateProductMutation,
 } from '../../../../../lip/service/productApi.js';
 import { useParams, useRouter } from 'next/navigation';
+import Link from 'next/link.js';
+import { FaChevronLeft } from 'react-icons/fa';
+import BackButton from '@/components/BackButton.jsx';
 
 export default function EditProductPage() {
 	const { slug } = useParams();
@@ -29,6 +32,7 @@ export default function EditProductPage() {
 			<div>
 				<Navbar />
 				<div className="container py-6">
+				
 					<div className="card p-6">
 						Failed to load.{' '}
 						<button
@@ -46,6 +50,7 @@ export default function EditProductPage() {
 		<div>
 			<Navbar />
 			<div className="container py-6">
+				<BackButton />
 				<div className="max-w-2xl mx-auto card p-6">
 					<h1 className="text-xl font-semibold mb-4">Edit product</h1>
 					<ProductForm

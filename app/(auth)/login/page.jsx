@@ -27,7 +27,6 @@ export default function LoginPage() {
 			);
 			router.replace('/products');
 		} catch (e) {
-			/* error shown below */
 			console.log('login error', e);
 
 		}
@@ -39,7 +38,7 @@ export default function LoginPage() {
 			<div className="min-h-screen grid place-items-center">
 				<div className="container">
 					<div className="max-w-md mx-auto card p-8">
-						<h1 className="text-2xl font-semibold mb-6">Welcome back</h1>
+						<h1 className="text-2xl font-semibold mb-6 text-center ">Welcome Back</h1>
 						<form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 							<div>
 								<label className="label" htmlFor="email">

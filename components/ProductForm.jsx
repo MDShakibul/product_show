@@ -44,7 +44,7 @@ export default function ProductForm({ defaultValues, submitting, onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      {/* Name */}
+
       <div>
         <label className="label" htmlFor="name">
           Name
@@ -55,7 +55,6 @@ export default function ProductForm({ defaultValues, submitting, onSubmit }) {
         )}
       </div>
 
-      {/* Price + Category */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="label" htmlFor="price">
@@ -89,7 +88,6 @@ export default function ProductForm({ defaultValues, submitting, onSubmit }) {
         </div>
       </div>
 
-      {/* Description */}
       <div>
         <label className="label" htmlFor="description">
           Description
@@ -133,7 +131,6 @@ export default function ProductForm({ defaultValues, submitting, onSubmit }) {
           )}
         </div>
 
-        {/* Right: Image Preview */}
         <div className="sm:w-1/3">
           <label className="label">Preview</label>
           <div className="grid grid-cols-2 gap-2 border rounded-lg p-2 bg-gray-900/20">

@@ -2,6 +2,8 @@ import { api } from './api';
 
 export const categoriesApi = api.injectEndpoints({
 	endpoints: (build) => ({
+
+		//Get all categories with pagination
 		getCategories: build.query({
 			query: ({ offset = 0, limit = 12 }) => ({
 				url: '/categories',
@@ -13,6 +15,7 @@ export const categoriesApi = api.injectEndpoints({
 			],
 		}),
 
+		// Search by name via dedicated endpoint;
 		searchCategories: build.query({
 			query: (searchedText) => ({
 				url: '/categories/search',

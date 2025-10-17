@@ -8,6 +8,9 @@ import {
 import { useEffect, useMemo, useState } from 'react';
 import Navbar from '@/components/Navbar.jsx';
 import Pagination from '@/components/Pagination.jsx';
+import Link from 'next/link.js';
+import { FaChevronLeft } from 'react-icons/fa';
+import BackButton from '@/components/BackButton.jsx';
 
 export default function CategoriesPage() {
 	const [page, setPage] = useState(1);
@@ -41,6 +44,7 @@ export default function CategoriesPage() {
 		<div>
 			<Navbar />
 			<div className="container py-6">
+			<BackButton />
 				<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
 					<h1 className="text-xl font-semibold">Categories</h1>
 					<SearchInput

@@ -2,7 +2,6 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const baseUrl =
 	process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.bitechx.com';
-const authBaseUrl = process.env.NEXT_PUBLIC_AUTH_BASE_URL || baseUrl;
 
 
 export const api = createApi({
@@ -22,7 +21,7 @@ export const api = createApi({
 
 // Separate baseQuery for auth if needed
 export const authBaseQuery = fetchBaseQuery({
-	baseUrl: authBaseUrl,
+	baseUrl: baseUrl,
 	prepareHeaders: (headers) => {
 		headers.set('Content-Type', 'application/json');
 		return headers;

@@ -11,6 +11,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
+import BackButton from '@/components/BackButton.jsx';
 
 export default function ProductDetailsPage() {
 	const { slug } = useParams();
@@ -24,6 +25,7 @@ export default function ProductDetailsPage() {
 		<div>
 			<Navbar />
 			<div className="container py-6">
+				<BackButton />
 				{isLoading ? (
 					<div className="py-20 grid place-items-center">
 						<Spinner label="Loading" />

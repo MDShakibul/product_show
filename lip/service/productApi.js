@@ -2,7 +2,6 @@ import { api } from './api';
 
 export const productsApi = api.injectEndpoints({
 	endpoints: (build) => ({
-		// List with offset/limit (+ optional categoryId). Returns array.
 		getProducts: build.query({
 			query: ({ offset = 0, limit = 12, categoryId }) => ({
 				url: '/products',
@@ -14,7 +13,7 @@ export const productsApi = api.injectEndpoints({
 			],
 		}),
 
-		// Search by name via dedicated endpoint; returns array.
+		// Search by name via dedicated endpoint;
 		searchProducts: build.query({
 			query: (searchedText) => ({
 				url: '/products/search',
@@ -32,11 +31,13 @@ export const productsApi = api.injectEndpoints({
 			providesTags: (res) => (res ? [{ type: 'Product', id: res.id }] : []),
 		}),
 
+		//Create Product
 		createProduct: build.mutation({
 			query: (body) => ({ url: '/products', method: 'POST', body }),
 			invalidatesTags: [{ type: 'Products', id: 'LIST' }],
 		}),
 
+		// Update Product
 		updateProduct: build.mutation({
 			query: ({ id, body }) => ({
 				url: `/products/${id}`,
@@ -49,6 +50,7 @@ export const productsApi = api.injectEndpoints({
 			],
 		}),
 
+		// Delete Product 
 		deleteProduct: build.mutation({
 			query: (id) => ({ url: `/products/${id}`, method: 'DELETE' }),
 			invalidatesTags: (res, err, id) => [

@@ -44,8 +44,8 @@ export default function Navbar() {
             <FaBars />
           </button>
 
-          <Link href="/products" className="font-semibold tracking-tight">
-            🛍️ Products Admin
+          <Link href="/products" className="font-semibold tracking-tight text-xl md:text-2xl">
+            Products Admin
           </Link>
 
           {/* Desktop Nav */}
