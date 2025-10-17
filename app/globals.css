@@ -3,12 +3,12 @@
 /* Tailwind v4 theme tokens */
 @theme {
   /* Use space-separated RGB so /opacity utilities work */
-  --color-background: 11 15 20;   /* #0b0f14 */
+  --color-background: 11 15 20;   /* #eff1f3 */
   --color-foreground: 230 238 248;/* #e6eef8 */
   --color-primary:    0 223 154;  /* #00df9a */
   --color-accent:     138 180 255;/* #8ab4ff */
   --color-muted:      107 114 128;/* #6b7280 */
-  --color-card:       17 24 39;   /* #111827 */
+  --color-card:       78 110 93;  /* #4e6e5d */
   --color-ring:       51 65 85;   /* #334155 */
 
   /* Custom shadow token for `shadow-soft` */
@@ -24,7 +24,7 @@ body,
 }
 
 body {
-  @apply bg-background text-foreground antialiased;
+  @apply bg-[#eff1f3]/50 text-foreground antialiased;
 }
 
 .input {
@@ -34,22 +34,22 @@ body {
   @apply block text-sm text-muted mb-1;
 }
 .btn {
-  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium shadow-soft border border-transparent disabled:opacity-60 disabled:cursor-not-allowed;
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium shadow-soft border border-transparent disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer;
 }
 .btn-primary {
-  @apply bg-primary text-black hover:brightness-110;
+  @apply bg-primary text-black hover:brightness-110 ;
 }
 .btn-secondary {
   @apply bg-card text-foreground border border-ring/40 hover:bg-card/80;
 }
 .btn-danger {
-  @apply bg-red-500 text-white hover:bg-red-600;
+  @apply bg-[#a44a3f]/70 text-white hover:bg-[#a44a3f];
 }
 .badge {
   @apply inline-flex items-center rounded-full bg-accent/15 text-accent px-2.5 py-1 text-xs font-semibold;
 }
 .card {
-  @apply rounded-2xl bg-card/70 border border-ring/40 shadow-soft;
+  @apply rounded-2xl bg-[#4e6e5d]/30  border-ring/40 shadow-soft text-[#0d1821];
 }
 .container {
   @apply max-w-6xl mx-auto px-4;

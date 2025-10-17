@@ -78,7 +78,7 @@ export default function CategoriesPage() {
 												<img
 													src={c.image}
 													alt={c.name}
-													className="h-16 w-16 rounded-xl border border-ring/30 object-cover"
+													className="h-16 w-16 rounded-xl  object-cover"
 												/>
 											)}
 											<div className="flex-1 min-w-0">
@@ -93,14 +93,7 @@ export default function CategoriesPage() {
 												{c.description}
 											</p>
 										)}
-										<div className="flex items-center gap-2 mt-auto">
-											<button
-												className="btn btn-secondary"
-												onClick={() => navigator.clipboard?.writeText(c.id)}
-											>
-												Copy ID
-											</button>
-										</div>
+										
 									</div>
 								))}
 							</div>
