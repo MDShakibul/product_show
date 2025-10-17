@@ -100,7 +100,7 @@ export default function CategoriesPage() {
 						)}
 
 						{!search && (
-							<div className="mt-6">
+							<div className="mt-6 flex justify-center">
 								<Pagination
 									page={page}
 									hasNext={hasNext}

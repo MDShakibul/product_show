@@ -7,8 +7,8 @@ import Spinner from '@/components/Spinner';
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
-import { GrView } from 'react-icons/gr';
 import { MdDelete } from 'react-icons/md';
+import { GrView } from 'react-icons/gr';
 import {
 	useDeleteProductMutation,
 	useGetProductsQuery,
@@ -196,7 +196,7 @@ export default function ProductsPage() {
 						)}
 
 						{!search && (
-							<div className="mt-6">
+							<div className="mt-6 flex justify-center">
 								<Pagination
 									page={page}
 									hasNext={hasNext}

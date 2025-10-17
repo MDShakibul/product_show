@@ -1,4 +1,5 @@
 'use client';
+import { FaRegArrowAltCircleLeft , FaRegArrowAltCircleRight} from "react-icons/fa";
 export default function Pagination({ page, hasNext, onPageChange }) {
 	return (
 		<div className="flex items-center gap-2">
@@ -7,7 +8,7 @@ export default function Pagination({ page, hasNext, onPageChange }) {
 				disabled={page === 1}
 				onClick={() => onPageChange(page - 1)}
 			>
-				Prev
+				<FaRegArrowAltCircleLeft />
 			</button>
 			<div className="text-sm text-muted">Page {page}</div>
 			<button
@@ -15,7 +16,7 @@ export default function Pagination({ page, hasNext, onPageChange }) {
 				disabled={!hasNext}
 				onClick={() => onPageChange(page + 1)}
 			>
-				Next
+				<FaRegArrowAltCircleRight />
 			</button>
 		</div>
 	);

@@ -9,6 +9,8 @@ import {
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { FaEdit } from 'react-icons/fa';
+import { MdDelete } from 'react-icons/md';
 
 export default function ProductDetailsPage() {
 	const { slug } = useParams();
@@ -43,9 +45,13 @@ export default function ProductDetailsPage() {
 							<div className="text-muted mb-4">{data.category?.name}</div>
 							{data.images?.[0] && (
 								<img
-									src={data.images[0]}
+									src={
+													data.images?.[0]
+														? data.images[0]
+														: `https://placehold.co/600x400`
+												}
 									alt={data.name}
-									className="rounded-xl border border-ring/30 mb-4 aspect-[4/3] object-cover"
+									className="rounded-xl border-ring/30 mb-4 aspect-[4/3] object-cover"
 								/>
 							)}
 							<p className="leading-7 whitespace-pre-wrap">
@@ -62,13 +68,13 @@ export default function ProductDetailsPage() {
 									href={`/products/${data.slug}/edit`}
 									className="btn btn-secondary"
 								>
-									Edit
+									<FaEdit className='mr-1'/> Edit
 								</Link>
 								<button
 									className="btn btn-danger ml-auto"
 									onClick={() => setOpen(true)}
 								>
-									Delete
+									<MdDelete className='mr-1'/> Delete
 								</button>
 							</div>
 						</div>
