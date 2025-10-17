@@ -114,7 +114,7 @@ export default function ProductForm({ defaultValues, submitting, onSubmit }) {
           </label>
           <textarea
             id="images"
-            rows={6}
+            rows={4}
             className="input w-full"
             defaultValue={imagesText}
             onChange={(e) => {

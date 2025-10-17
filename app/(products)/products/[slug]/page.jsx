@@ -19,7 +19,6 @@ export default function ProductDetailsPage() {
 	const [del, { isLoading: deleting }] = useDeleteProductMutation();
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
-	console.log(slug)
 
 	return (
 		<div>
@@ -63,7 +62,7 @@ export default function ProductDetailsPage() {
 						<div className="card p-6 flex flex-col gap-3 h-fit">
 							<div className="text-sm">Price</div>
 							<div className="text-3xl font-semibold">
-								${Number(data.price).toFixed(2)}
+								TK {Number(data.price).toFixed(2)}
 							</div>
 							<div className="flex items-center gap-2 mt-2">
 								<Link

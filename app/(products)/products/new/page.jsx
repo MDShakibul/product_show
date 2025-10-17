@@ -16,7 +16,7 @@ export default function NewProductPage() {
 			<Navbar />
 			<div className="container py-6">
 				<BackButton />
-				<div className="max-w-2xl mx-auto card p-6">
+				<div className="max-w-2xl mx-auto border card p-6">
 					<h1 className="text-xl font-semibold mb-4">Create product</h1>
 					<ProductForm
 						onSubmit={async (values) => {
